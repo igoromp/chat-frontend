@@ -1,0 +1,75 @@
+<div class="container-fluid clearfix">
+    <div class="row">
+        <div class="col-sm-3 user-contact">
+            <div class="search">
+                <input type="text" placeholder="search">
+                <!-- <button class="btn-search">
+                    <fa-icon [icon]="faSearch"></fa-icon>
+                </button> -->
+            </div>
+           <ul class="contact-list">
+               <li class="clearfix">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_03.jpg" alt="">
+                    <div class="about">
+                        <div class="name">Michelangelo</div>
+                        <div class="status">
+                            <div><div class="status-icon status-online"></div>  online</div>
+                        </div>
+                    </div>
+               </li>
+
+               <li class="clearfix">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_07.jpg" alt="">
+                    <div class="about">
+                        <div class="name">Donatello</div>
+                        <div class="status">
+                            <div><div class="status-icon status-offline"></div>  offline</div>
+                        </div>
+                    </div>
+                </li>
+           </ul>
+        </div>
+        <div class="col-sm-9 chat">
+            <div class="chat-header clearfix">
+                <div class="img-wrapper"></div>
+                <div class="chat-about">
+                    <div class="chat-name">
+                        <p>Chat with Chuck Norris</p>
+                    </div>
+                </div>
+            </div>
+            <div class="chat-divide"></div>
+            <div class="chat-history">
+                <ul>
+                  <li class="clearfix">
+                    <div class="message-data align-right">
+                      <span class="message-data-time" >10:10 AM, Today</span> &nbsp; &nbsp;
+                      <span class="message-data-name" >Me</span> <fa-icon [icon]="faCircle" class="my-msg-icon"></fa-icon>
+                      
+                    </div>
+                    <div class="message my-messager float-right">
+                      Hi Vincent, how are you? How is the project coming along?
+                    </div>
+                  </li>
+                  
+                  <li>
+                    <div class="message-data">
+                      <span class="message-data-name"><fa-icon [icon]="faCircle" class="other-msg-icon"></fa-icon> Vincent</span>
+                      <span class="message-data-time">10:12 AM, Today</span>
+                    </div>
+                    <div class="message other-messager">
+                      Are we meeting today? Project has been already finished and I have results to show you.
+                    </div>
+                  </li>
+                                    
+                </ul>
+                
+              </div>
+
+              <div class="chat-message-send">
+                    <textarea type="text" class="input-message" placeholder="type your message here..."></textarea>
+                    <button type="button" class="btn-send-message">Send</button>
+              </div>
+        </div>
+    </div>
+</div>

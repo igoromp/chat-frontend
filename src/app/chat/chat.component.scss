@@ -1,0 +1,202 @@
+
+$lightgray:#6A6C75;
+$mainGray: #444753;
+$statusOnline: #86BB71;
+$statusOffline:#E38968;
+
+.container-fluid{
+    overflow-y: hidden; /* Hide vertical scrollbar */
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+    
+}
+.user-contact{
+    background-color: $mainGray;
+    position: absolute;
+    min-height: 100%;
+    overflow: hidden;
+}
+
+.search {
+    margin-top:10px;
+    padding: 20px;
+    position: relative;
+    input{
+        border-radius: 5px;
+        width: 100%;
+        background-color:$lightgray ;
+        border: 0;
+        padding: 5px;
+        text-indent: 10px;
+        color: #DDD;
+        outline: none;
+        ::placeholder {
+            text-indent: 10px;
+        }
+       
+    }
+
+    .btn-search{
+        position: absolute;
+        line-height: 34px;
+        padding: 0;
+        width: 34px;
+        background-color: rgba($color: #DEDEDE, $alpha: 0.6);
+        border: 0;
+        color: #FFF;
+        margin-left: -34px;
+        outline: none;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        transition: background-color 0.2s ease-in;
+        &:hover{
+            background-color: rgba($color: #DEDEDE, $alpha: 0.7);
+        }
+    }
+   
+}
+
+.contact-list {
+    list-style: none; 
+    padding: 5px 20px;
+    li{
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 15px;
+        img{width:60px;border-radius: 50%;float: left;flex: 2; }
+        .about{
+            margin-left: 10px;
+            flex:6;
+            .name {
+                font-weight: 300;
+                color: #FFF;
+                margin-top: 10px;
+            }
+            .status{
+                color:$lightgray;
+                .status-icon{
+                    width: 10px;
+                    height: 10px;
+                    display: inline-block;
+                    margin-right: 5px;
+                    border-radius: 50%;
+                     &.status-online{background-color: $statusOnline;}
+                     &.status-offline{background-color: $statusOffline;}
+                }
+            }
+        }
+    }
+
+}
+.chat {
+    margin-left: 25%;
+    padding: 0;
+    .chat-header{
+        padding:10px 20px;
+        display: flex;
+        .img-wrapper{
+            width:80px;
+            height:80px;
+            border-radius: 50%;
+            background-image: url('../../assets/images/chucknorris.jpeg');
+            background-position: center;
+            background-size: cover;
+            border:3px solid $statusOnline;
+            display: inline-block;
+            
+        }
+        .chat-about{
+            margin-left: 10px;
+            display: flex;
+        }
+        .chat-name{
+            font-size: 18px;
+            margin-top: 20px;
+            font-weight: bold;
+            color: $mainGray;
+            p {
+                margin:0;
+            }
+        }
+    }
+
+    .chat-divide {
+        width: 100%;
+        height: 1px;
+        background-color: rgba($color: #000000, $alpha: 0.18);        
+        margin-bottom: 10px;
+    }
+    .chat-history{
+        padding: 30px 30px 20px;
+        border-bottom: 2px solid white;
+        overflow-y: scroll;
+        height: 446px;
+        ul{
+            list-style: none;
+            li {
+                .message-data{ color: $lightgray; }
+                .message-data-name{ color: #5D606A; margin-right: 5px;}
+                fa-icon { 
+                    font-size: 11px ;
+                    &.my-msg-icon{ color: $statusOnline;}
+                    &.othen-msg-icon {color: $mainGray}
+                }
+                
+                .message {
+                    color:#fff;
+                    padding:18px 20px;
+                    font-size: 1rem;
+                    border-radius: 7px;
+                    margin-bottom: 20px;
+                    width: 65%;
+                    &.my-messager{
+                        background-color: $statusOnline;
+                    }
+                    &.other-messager{
+                        background-color: $mainGray;
+                    }
+                }
+            }
+        }
+    }
+    .chat-message-send {
+        height: 80px;
+        padding: 10px;
+        display: flex;
+        border-top: 1px solid rgba($color: $mainGray, $alpha: 0.45);
+        justify-content: flex-end;
+        .input-message{
+            align-self: center;
+            color: $mainGray;
+            height:60px ;
+            outline: none;
+            border: 1px solid $statusOffline;
+            border-radius: 5px;
+            text-indent: 10px;
+            width: 60%;
+            padding: 5px 10px;
+            resize: none;
+            
+        }
+        .btn-send-message{
+            margin-left: 10px;
+            width: 80px;
+            text-transform: uppercase;
+            font-weight: bold;
+            background-color: $mainGray;
+            border: 1px solid $mainGray;
+            border-radius: 4px;
+            color: #FFF;
+            transition: background-color 0.2s ease-in;
+            outline: none;
+            &:hover{
+                background-color: #FFF;
+                color: $mainGray;
+            }
+        }
+    }
+    
+}
+
+.align-right{ text-align: right;}
+.align-left{ text-align: right;}
+
