@@ -1,4 +1,4 @@
-import { Component, OnInit, ɵConsole } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { faSearch,faCircle } from '@fortawesome/free-solid-svg-icons';
 import io from 'socket.io-client';
 
@@ -9,8 +9,8 @@ import io from 'socket.io-client';
   styleUrls: ['./chat.component.scss']
 })
 export class ChatComponent implements OnInit {
-  faSearch = faSearch;
-  faCircle=faCircle;
+  fa_search = faSearch;
+  fa_circle=faCircle;
 
   socket;
   constructor() { 

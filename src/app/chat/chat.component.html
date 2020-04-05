@@ -1,6 +1,9 @@
 <div class="container-fluid clearfix">
     <div class="row">
         <div class="col-sm-3 user-contact">
+            <div style="padding-top: 5px;padding-bottom:5px;">
+                <button class="btn btn-danger" routerLink="/"> Logout</button>
+            </div>
             <div class="search">
                 <input type="text" placeholder="search">
                 <!-- <button class="btn-search">
@@ -44,7 +47,7 @@
                   <li class="clearfix">
                     <div class="message-data align-right">
                       <span class="message-data-time" >10:10 AM, Today</span> &nbsp; &nbsp;
-                      <span class="message-data-name" >Me</span> <fa-icon [icon]="faCircle" class="my-msg-icon"></fa-icon>
+                      <span class="message-data-name" >Me</span> <fa-icon [icon]="fa_circle" class="my-msg-icon"></fa-icon>
                       
                     </div>
                     <div class="message my-messager float-right">
@@ -54,7 +57,7 @@
                   
                   <li>
                     <div class="message-data">
-                      <span class="message-data-name"><fa-icon [icon]="faCircle" class="other-msg-icon"></fa-icon> Vincent</span>
+                      <span class="message-data-name"><fa-icon [icon]="fa_circle" class="other-msg-icon"></fa-icon> Vincent</span>
                       <span class="message-data-time">10:12 AM, Today</span>
                     </div>
                     <div class="message other-messager">
