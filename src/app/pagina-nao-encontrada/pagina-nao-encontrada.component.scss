@@ -1,0 +1,28 @@
+body{
+    background-color:#DEDEDE;
+}
+.content-wrapper{
+    display:flex;
+    flex-direction:column;
+    height: 100vh;
+    justify-content: center;
+}
+.not-found-wrapper {
+    margin:0 auto;
+    width:400px;
+    font-family:'Arial',sans-serif;
+    height: 400px;
+}
+h1,h2,p {
+    text-align:center;
+}
+h1{
+    font-size:12rem;
+    font-weight:bolder;
+    color:#424242;
+    margin-bottom:0;
+}
+
+
+
+

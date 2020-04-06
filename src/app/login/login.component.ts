@@ -1,3 +1,4 @@
+import { AuthService } from './../auth/auth.service';
 import { Component, OnInit, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import  { FormGroup, FormControl } from '@angular/forms';
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
   })
  
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private auth: AuthService) { }
 
   ngOnInit(): void {
 
@@ -29,8 +30,8 @@ export class LoginComponent implements OnInit {
   } */
 
   openChat() {
-    const {name , password} =this.loginForm.value;
-      if( name === 'igoromp' && password  === '123456' ) {
+       this.auth.login(this.loginForm.value)
+      if ( this.auth.isAuthenticated() ) {
         this.router.navigate(['/chat']);
         return;
       } else {
