@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { faSearch,faCircle } from '@fortawesome/free-solid-svg-icons';
 import io from 'socket.io-client';
+import { AuthService } from '../auth/auth.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -13,7 +15,10 @@ export class ChatComponent implements OnInit {
   fa_circle=faCircle;
 
   socket;
-  constructor() { 
+  constructor(
+    private authService: AuthService,
+    private router: Router
+    ) { 
     
   }
 
@@ -30,6 +35,11 @@ export class ChatComponent implements OnInit {
       this.socket.on('#9999-9999',(data)=>{
         console.log(data);
       })
+  }
+
+  logoutChat(){
+    this.authService.logout();
+    this.router.navigate(['']);
   }
 
 }

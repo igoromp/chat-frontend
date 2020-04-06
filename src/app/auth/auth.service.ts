@@ -15,6 +15,10 @@ export class AuthService {
     }
   }
 
+  logout() {
+    localStorage.setItem('islogged','');
+  }
+
   isAuthenticated() :boolean {
     const logged = localStorage.getItem('islogged')
     return logged === 'true';

@@ -10,10 +10,6 @@ export class PaginaNaoEncontradaComponent implements OnInit {
 
   constructor(public elementRef:ElementRef) { }
 
-  ngAfterViewInit(){
-    //this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = '#DDD';
-  }
-
   ngOnInit(): void {
   }
 
