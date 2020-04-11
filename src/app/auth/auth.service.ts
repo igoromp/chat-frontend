@@ -1,26 +1,47 @@
 import { Injectable } from '@angular/core';
+import { LoginService } from '../login/login-service/login.service';
+import { map } from 'rxjs/operators';
+import Usuario from '../models/user';
+import { Router } from '@angular/router';
+import { Generico } from '../base/generico.service';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor() { }
+  constructor(
+    private loginService: LoginService,
+    private route : Router,
+    private generico : Generico
+    ) { }
 
-  login({name, password}) {
-    if( name === 'igoromp' && password  === '123456') {
-      localStorage.setItem('islogged','true');
-    } else {
-      localStorage.setItem('islogged', '');
-    }
+  login(obj : any) {
+    return  this.loginService.login(obj)
+      .pipe(
+        map(( res:Usuario ) => {
+          const { email, name , token } = res;
+          this.setSession(token);
+          
+          this.generico.usuario = { email, name };
+          return true;
+        })
+      );
+  }
+
+  private setSession(token: string) {
+    sessionStorage.setItem('id_token', token);
+    sessionStorage.setItem('is_logged', 'true');
   }
 
   logout() {
-    localStorage.setItem('islogged','');
+    sessionStorage.clear();
+    this.route.navigate(['']);
   }
 
   isAuthenticated() :boolean {
-    const logged = localStorage.getItem('islogged')
+    const logged = sessionStorage.getItem('is_logged')
     return logged === 'true';
   }
 }

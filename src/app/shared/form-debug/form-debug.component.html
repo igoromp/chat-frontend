@@ -1,0 +1,13 @@
+<div class="row"style="position:absolute;top:0; left: 0;" >
+        <div style="width: 400px; margin-left: 10px;">
+            <div style="margin-top:20px;margin-left: 10px; background-color:#E2E2E2" *ngIf="form">
+        
+                <pre>
+                Detalhes do Formulário <br>    
+                Data: <br>  {{form.value | json }} <br>
+                    
+                response:{{response | json}}    
+                </pre>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,34 @@
+<div class="login-wrapper">
+    <alert #alertComponent></alert>
+
+    <!-- <form-debug [form]="formulario" [response]="response"></form-debug> -->
+    <h2 >Cadastro de Usuário</h2>
+   <div class="container">
+        <div class="row">
+            <div class="col-md-4 offset-md-4">
+                <form class="form-horizontal" [formGroup]="formulario">
+                    <div class="form-group">
+                        <input type="text" placeholder="nome"  formControlName="name">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="email"  formControlName="email">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="col-md-10"  placeholder="password" formControlName="password">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="col-md-10" placeholder="confirm password" formControlName="confirmPassword">
+                    </div>
+
+                    <div class="form-group">
+                        <div >
+                            <button  class="btn btn-primary btn-block btn-large" (click)="cadastrarUsuario()">Cadastrar</button>
+                        </div>
+                    </div>
+                </form>
+                <p><a [routerLink]="['/login']">voltar</a></p>
+            </div>
+        </div>
+        <!-- <form-debug [form]="formulario" [response]="response" ></form-debug> -->
+   </div>
+</div>

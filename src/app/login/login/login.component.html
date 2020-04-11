@@ -1,0 +1,16 @@
+<div class="login-wrapper">
+    <alert #alert></alert>
+    <div class="login">
+        
+        <h1>Login</h1>
+        <form  [formGroup]="loginForm">
+            <input type="email" formControlName="email" placeholder="Email"/>
+            <input type="password" formControlName="password" placeholder="Password"/>
+            <button type="button"
+                class="btn btn-primary btn-block btn-large" (click)="login()">Let me in.</button>
+        </form>
+        <p><a [routerLink]="['cadastro']">ou cadastre-se</a></p>
+    </div>
+    <!-- <form-debug [form]="loginForm"></form-debug> -->
+</div>
+<!-- <router-outlet></router-outlet> -->

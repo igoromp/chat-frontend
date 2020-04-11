@@ -1,8 +1,8 @@
+import { BaseService } from './../base/base.service';
 import { Component, OnInit } from '@angular/core';
 import { faSearch,faCircle } from '@fortawesome/free-solid-svg-icons';
 import io from 'socket.io-client';
 import { AuthService } from '../auth/auth.service';
-import { Router } from '@angular/router';
 
 
 @Component({
@@ -17,29 +17,28 @@ export class ChatComponent implements OnInit {
   socket;
   constructor(
     private authService: AuthService,
-    private router: Router
+    private base : BaseService
     ) { 
     
   }
 
   ngOnInit(): void {
-    this.socket = io.connect('http://localhost:3000')
+    this.socket = io.connect(this.base.URL)
     this.socket.on("connect", this.onConnect);
     
   }
 
-  onConnect =(socket)=>{
+  onConnect = (socket) => {
       console.log("WEB SOCKET CONNECTED....")
       this.socket.emit('EVENTS', {user:'USER_1', telefone:'#9999-9999'})
 
-      this.socket.on('#9999-9999',(data)=>{
+      this.socket.on('#9999-9999',(data) => {
         console.log(data);
       })
   }
 
   logoutChat(){
     this.authService.logout();
-    this.router.navigate(['']);
   }
 
 }
