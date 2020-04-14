@@ -1,0 +1,37 @@
+<ng-container [ngSwitch]="typeMessage">
+    <ng-container *ngSwitchCase="'mymessage'">
+        <ng-container *ngTemplateOutlet="myMessage; context:messageCtx"></ng-container>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'contactmessage'">
+        <ng-container *ngTemplateOutlet="contactMessage context:messageCtx"></ng-container>
+    </ng-container>
+
+</ng-container>
+
+
+<ng-template #myMessage let-message>
+    <li class="clearfix">
+        <div class="message-data align-right">
+            <span class="message-data-time" >{{ date }}</span> &nbsp; &nbsp;
+            <span class="message-data-name" >{{ user }}</span> <fa-icon [icon]="fa_circle" class="my-msg-icon"></fa-icon>
+            
+        </div>
+        <div class="message my-messager float-right">
+            {{ message }}
+        </div>
+    </li>
+</ng-template>
+
+<ng-template #contactMessage  let-message> 
+    <li class="clearfix">
+        <div class="message-data">
+          <span class="message-data-name"><fa-icon [icon]="fa_circle" class="other-msg-icon"></fa-icon> {{ user }}</span>
+          <span class="message-data-time">{{ date }}</span>
+        </div>
+        <div class="message other-messager">
+          {{ message }}
+        </div>
+      </li>
+</ng-template>
+

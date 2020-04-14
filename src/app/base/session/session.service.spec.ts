@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { Generico } from './generico.service';
+import { SessionService } from './session.service';
 
-describe('Generico', () => {
-  let service: Generico;
+describe('SessionService', () => {
+  let service: SessionService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(Generico);
+    service = TestBed.inject(SessionService);
   });
 
   it('should be created', () => {

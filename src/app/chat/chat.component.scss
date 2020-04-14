@@ -132,30 +132,8 @@ $statusOffline:#E38968;
         height: 446px;
         ul{
             list-style: none;
-            li {
-                .message-data{ color: $lightgray; }
-                .message-data-name{ color: #5D606A; margin-right: 5px;}
-                fa-icon { 
-                    font-size: 11px ;
-                    &.my-msg-icon{ color: $statusOnline;}
-                    &.othen-msg-icon {color: $mainGray}
-                }
-                
-                .message {
-                    color:#fff;
-                    padding:18px 20px;
-                    font-size: 1rem;
-                    border-radius: 7px;
-                    margin-bottom: 20px;
-                    width: 65%;
-                    &.my-messager{
-                        background-color: $statusOnline;
-                    }
-                    &.other-messager{
-                        background-color: $mainGray;
-                    }
-                }
-            }
+            /* li {
+            } */
         }
     }
     .chat-message-send {
@@ -197,6 +175,4 @@ $statusOffline:#E38968;
     
 }
 
-.align-right{ text-align: right;}
-.align-left{ text-align: right;}
 
