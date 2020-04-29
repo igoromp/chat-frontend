@@ -1,46 +1,69 @@
-<div class="container-fluid clearfix">
-    <div class="row">
-        <div class="col-sm-3 user-contact">
-            <div style="padding-top: 5px;padding-bottom:5px;">
-                <button class="btn btn-danger" (click)="logoutChat()"> Logout</button>
+<div class="wrap-chat">
+    <div class="aside-chat">
+        <div class="profile-wrap">
+            <div class="profile">
+                <img  class="profile-img" src="https://i.pinimg.com/564x/88/7d/27/887d27fa4383d620d9c7376082af54ac.jpg" alt="">
+                <p class="profile-name">{{ myName.split(' ')[0].toUpperCase() +' '+ myName.split(' ')[1].toUpperCase() }}</p>
             </div>
-            <div class="search">
-                <input type="text" placeholder="search">
-                <!-- <button class="btn-search">
-                    <fa-icon [icon]="faSearch"></fa-icon>
-                </button> -->
-            </div>
-           <ul class="contact-list" *ngIf="contacts.length > 0">
-               <li class="clearfix" *ngFor="let contact of contacts" (click)="currentChat(contact)" >
-                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_03.jpg" alt="">
-                    <div class="about">
-                        <div class="name">{{ contact.name }}</div>
-                        <div class="status">
-                            <div><div class="status-icon status-online"></div>  online</div>
-                        </div>
-                    </div>
-               </li>
-
-           </ul>
         </div>
-        <div class="col-sm-9 chat">
-            <div class="chat-header clearfix">
-                <div class="img-wrapper"></div>
-                <div class="chat-about">
-                    <div class="chat-name">
-                        <p>Chat with {{ currentContact }}</p>
-                    </div>
+        <div class="contact-search-wrap">
+            <input type="text" class="contact-search"   placeholder="search contact...">    
+        </div>
+        <ul class="list-contacts" *ngIf="contacts">
+            <li class="contact" *ngFor="let ct of contacts" (click)="currentChat(ct)">
+                <img  class="contact-img" src="https://i.pinimg.com/564x/88/7d/27/887d27fa4383d620d9c7376082af54ac.jpg" alt="">
+                <div class="contact-info">
+                    <p class="contact-name">{{ct.name}}</p>
+                    <p class="contact-message-send">{{ct.message}}</p>
                 </div>
-            </div>
-            <div class="chat-divide"></div>
-            <div class="chat-history" #chatMessagesHistory>
-                <ng-container #listMessagesContainer></ng-container>
-              </div>
-
-              <div class="chat-message-send">
-                    <textarea type="text" [(ngModel)]="messageTxt" class="input-message" placeholder="type your message here..."></textarea>
-                    <button type="button" class="btn-send-message" (click)="sendMessage()">Send</button>
-              </div>
+            </li>            
+        </ul>
+        <div class="settings-container">
+            <button class="btn-conf"> Add + </button>
+            <button class="btn-conf" (click)="logoutChat()"> Logout </button>
         </div>
     </div>
+    <div class="content-chat">
+        <ng-container [ngSwitch]="page">
+            <ng-container *ngSwitchCase="'chatHistory'">
+                <div class="toolbar bd-bottom">
+                    <div class="img-wrap">
+                        <img src="https://formiguinhadocaria.com.br/admin/assets/avatars/profile-pic.jpg" alt="">
+                    </div>
+                    <p class="profile-name"> {{currentContact}}</p>
+                </div>
+                <ul class="chat-history" #chatMessagesHistory>
+                    <div *ngIf="messages[currentContactEmail]">
+                        <message 
+                            *ngFor="let msg of messages[currentContactEmail]"
+                            [message]="msg.message"
+                            [user]="msg.user"
+                            [typeMessage]="msg.type"
+                        >
+                        </message>
+                    </div>
+                    <li [hidden]="true" #listMessagesContainer></li>
+                </ul>
+                <form class="wrap-message" [formGroup]="sendMessageForm" (ngSubmit)="sendMessage()">
+                    <input type="text" class="input-message" id="input-message" formControlName="messageTxt" placeholder="Write a message here...">
+                    <button type="submit" class="btn-message">Enviar</button>
+                </form>
+            </ng-container>
+
+            <ng-container *ngSwitchCase="'chatLoadPage'">
+                <div class="chat-page-load">
+                    <h1 class=" title text-center">WhatChat</h1>
+                   <div class="img-chat">
+                        <!-- <img src="assets/images/chat-page-loading.png" alt=""> -->
+                   </div>
+                   <div class="sub-title">
+                       <h4 style="color:#212121;">Escolha um contato e inicie uma conversa agora <span style="color:#51AEEB;"> ;)</span> </h4>
+                   </div>
+                </div>
+            </ng-container>
+        </ng-container>
+        
+    </div>
 </div>
+
+

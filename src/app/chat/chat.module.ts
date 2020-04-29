@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ChatComponent } from './chat.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -16,7 +16,8 @@ import { FormsModule } from '@angular/forms';
       CommonModule,
       FontAwesomeModule,
       ChatRoutingModule,
-      FormsModule
+      FormsModule,
+      ReactiveFormsModule
     ],
     providers: [],
   })

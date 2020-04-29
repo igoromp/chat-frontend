@@ -13,24 +13,22 @@
 <ng-template #myMessage let-message>
     <li class="clearfix">
         <div class="message-data align-right">
-            <span class="message-data-time" >{{ date }}</span> &nbsp; &nbsp;
-            <span class="message-data-name" >{{ user }}</span> <fa-icon [icon]="fa_circle" class="my-msg-icon"></fa-icon>
-            
+            <span class="message-data-time" >{{ date }}</span>           
         </div>
-        <div class="message my-messager float-right">
-            {{ message }}
+        <div class="chat-row end">
+            <div class="chat-message send">{{ message }}</div>
         </div>
+        
     </li>
 </ng-template>
 
 <ng-template #contactMessage  let-message> 
     <li class="clearfix">
         <div class="message-data">
-          <span class="message-data-name"><fa-icon [icon]="fa_circle" class="other-msg-icon"></fa-icon> {{ user }}</span>
           <span class="message-data-time">{{ date }}</span>
         </div>
-        <div class="message other-messager">
-          {{ message }}
+        <div class="chat-row start">
+            <div class="chat-message received">{{ message }}</div>
         </div>
       </li>
 </ng-template>

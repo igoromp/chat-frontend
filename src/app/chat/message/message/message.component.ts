@@ -2,6 +2,10 @@ import { Component, OnInit, Input } from '@angular/core';
 import { faSearch,faCircle } from '@fortawesome/free-solid-svg-icons';
 import * as moment  from 'moment';
 
+const TYPES_MESSAGES ={
+  MY: 'mymessage',
+  CONTACT :'contactmessage'
+}
 
 @Component({
   selector: 'message',
@@ -19,6 +23,15 @@ export class MessageComponent implements OnInit {
   
   _date:string;
   constructor() { }
+
+  static get MY_TYPE(){
+    return TYPES_MESSAGES.MY
+  }
+
+  static get CONTACT_TYPE(){
+    return TYPES_MESSAGES.CONTACT;
+  }
+
 
   ngOnInit(): void {
     this._date = moment().format('LLL');

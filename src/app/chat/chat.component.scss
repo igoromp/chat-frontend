@@ -1,178 +1,254 @@
-
-$lightgray:#6A6C75;
-$mainGray: #444753;
-$statusOnline: #86BB71;
-$statusOffline:#E38968;
-
-.container-fluid{
-    overflow-y: hidden; /* Hide vertical scrollbar */
-    overflow-x: hidden; /* Hide horizontal scrollbar */
-    
-}
-.user-contact{
-    background-color: $mainGray;
-    position: absolute;
-    min-height: 100%;
-    overflow: hidden;
-}
-
-.search {
-    margin-top:10px;
-    padding: 20px;
-    position: relative;
-    input{
-        border-radius: 5px;
-        width: 100%;
-        background-color:$lightgray ;
-        border: 0;
-        padding: 5px;
-        text-indent: 10px;
-        color: #DDD;
-        outline: none;
-        ::placeholder {
-            text-indent: 10px;
+.wrap-chat {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    .aside-chat{
+        width: 25%;
+        height: 100%;
+        background-color:rgba(44, 62, 80,1) ;
+        position: relative;
+    }
+    @media (max-width:900px){
+        .aside-chat{
+            width: 50%;
         }
-       
+        .content-chat{
+            width: 50%;
+        }
     }
 
-    .btn-search{
-        position: absolute;
-        line-height: 34px;
-        padding: 0;
-        width: 34px;
-        background-color: rgba($color: #DEDEDE, $alpha: 0.6);
-        border: 0;
-        color: #FFF;
-        margin-left: -34px;
-        outline: none;
-        border-top-right-radius: 5px;
-        border-bottom-right-radius: 5px;
-        transition: background-color 0.2s ease-in;
-        &:hover{
-            background-color: rgba($color: #DEDEDE, $alpha: 0.7);
+    .content-chat{
+        width: 75%;
+        height: 100%;
+        background-color: #E6EAEA;
+        position: relative;
+        .bd-bottom {border-bottom: 1px solid #cdcdcd;}
+        .bd-top {border-top: 1px solid #cdcdcd;}
+        .toolbar{
+            width: 100%;
+            height: 60px;
+            background-color: #fff;
         }
+        .chat-page-load{
+            display: flex;
+            flex-direction: column;
+            .title {
+                flex: 1;
+                margin-top: 15px;
+                font-weight: bold;
+                color:#435f7a ;
+            }
+            .img-chat{
+                display: flex;
+                justify-content: center;
+                flex: 1;
+                img{
+                    
+                    margin-top: 15px;
+                    text-align: center;
+                }
+            }
+            .sub-title{
+                flex: 1;
+                h4{
+                    text-align: center;
+                }
+            }
+            
+        }
+    }
+    .bottom{
+        position: absolute;
+        bottom: 0;
+    }
+    .img-wrap{
+        display: inline-block;
+        img{
+            width: 50px;
+            height: 50px;
+            margin:5px;
+            object-fit: cover;
+            background-image: linear-gradient(220deg,#E6EAEA,#2c3e50 100%);
+            background-origin:border-box ;
+            background-clip: padding-box, border-box;
+            padding: 3px;
+            border-radius: 50%;
+        }
+    }
+    .profile-name{
+        display: inline-block;
+        margin-left: 10px;
+        font-size: 1.2rem;
+        color:rgba(44, 62, 80,0.75) ;
+    }
+
+    .chat-history{
+        margin:0;
+        padding: 0;
+        border: 0;
+
+        width: 100%;
+        height: calc(100vh - 100px);
+        background-color: #E9EBED;
+        overflow-y: scroll;
+        padding-bottom: 15px;
+    }
+
+    .wrap-message{
+        display: flex;
+        bottom: 0;
+    }
+    .input-message{
+        display: inline-block;
+        height:40px;
+        width: 90%;
+        text-indent: 10px;
+        color:rgba(44, 62, 80,0.75) ;
+        outline: none;
+    }
+    .btn-message{
+        height: 40px;
+        width: 100px;
+        background-color:#2c3e50;
+        border: 0;
+        color: #fff;
+        font-weight: bold;
+        transition: background-color 0.1s ease-in;
+        outline: none;
+        &:hover{ background-color:#435f7a; }
     }
    
-}
-
-.contact-list {
-    list-style: none; 
-    padding: 5px 20px;
-    li{
+    .profile-wrap{
+        height: 120px;
         display: flex;
-        flex-direction: row;
-        margin-bottom: 15px;
-        img{width:60px;border-radius: 50%;float: left;flex: 2; }
-        .about{
-            margin-left: 10px;
-            flex:6;
-            .name {
-                font-weight: 300;
-                color: #FFF;
-                margin-top: 10px;
+        justify-content: flex-start;
+        
+        .profile{
+            width: 90%;
+            height: 60px;
+            margin: 25px auto;
+        }
+        
+        .profile-img{
+            width: 70px;
+            height: 70px;
+            margin-left: 15px;
+            align-self: flex-start;
+            object-fit: cover;
+            background-image: linear-gradient(220deg, #27AE60 , rgb(22, 129, 12) 100%) ;
+            background-clip: padding-box, border-box;
+            background-origin: border-box;
+            padding: 3px;
+            border-radius: 50%;
+
+        }
+        .profile-name{
+            color: #FFF;
+            font-size: 1.2rem;
+            margin:0;
+            padding: 0;
+            margin-left: 15px;
+        }
+    }
+    .contact-search-wrap{
+        
+        .contact-search{
+            width: 100%;
+            background-color: #32465a;
+            height: 40px;
+            outline: none;
+            border: 0;
+            color: #f5f5f5;
+            text-indent: 20px;
+            &::placeholder {
+                color: #f5f5f5;
             }
-            .status{
-                color:$lightgray;
-                .status-icon{
-                    width: 10px;
-                    height: 10px;
-                    display: inline-block;
-                    margin-right: 5px;
-                    border-radius: 50%;
-                     &.status-online{background-color: $statusOnline;}
-                     &.status-offline{background-color: $statusOffline;}
+        }
+    }
+
+    .list-contacts{
+        padding: 0;
+        border: 0;
+        margin:0;
+        height: calc(80vh - 30px);
+        overflow-y: scroll;
+
+        &::-webkit-scrollbar-thumb {
+            background: #435f7a;
+        }
+        &::-webkit-scrollbar {
+            background-color: transparent;
+            width: 5px;
+        }
+
+        .contact{
+            list-style: none;
+            padding: 10px 10px 15px 0;
+            position: relative;
+            font-size: 0.9rem;
+            display: flex;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+            &:hover{
+                background-color: #435f7a;
+            }
+
+            .contact-img{
+                width: 50px;
+                height: 50px;
+                object-fit: cover;
+                border-radius: 50%;
+                margin-left: 10px;
+            }
+            .contact-info p{
+                color: #fff;
+                padding:0;
+                margin: 0;
+                margin-left: 10px;
+                &.contact-name{ font-size: 1.2em; }
+                &.contact-message-send{
+                    width: 240px;
+                    font-size: 0.7rem;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
                 }
             }
         }
     }
 
-}
-.chat {
-    margin-left: 25%;
-    padding: 0;
-    .chat-header{
-        padding:10px 20px;
-        display: flex;
-        .img-wrapper{
-            width:80px;
-            height:80px;
-            border-radius: 50%;
-            background-image: url('../../assets/images/chucknorris.jpeg');
-            background-position: center;
-            background-size: cover;
-            border:3px solid $statusOnline;
-            display: inline-block;
-            
-        }
-        .chat-about{
-            margin-left: 10px;
-            display: flex;
-        }
-        .chat-name{
-            font-size: 18px;
-            margin-top: 20px;
-            font-weight: bold;
-            color: $mainGray;
-            p {
-                margin:0;
-            }
-        }
+    ::-webkit-scrollbar-thumb {
+        background: #435f7a;
     }
-
-    .chat-divide {
-        width: 100%;
-        height: 1px;
-        background-color: rgba($color: #000000, $alpha: 0.18);        
-        margin-bottom: 10px;
-    }
-    .chat-history{
-        padding: 30px 30px 20px;
-        border-bottom: 2px solid white;
-        overflow-y: scroll;
-        height: 446px;
-        ul{
-            list-style: none;
-            /* li {
-            } */
-        }
-    }
-    .chat-message-send {
-        height: 80px;
-        padding: 10px;
-        display: flex;
-        border-top: 1px solid rgba($color: $mainGray, $alpha: 0.45);
-        justify-content: flex-end;
-        .input-message{
-            align-self: center;
-            color: $mainGray;
-            height:60px ;
-            outline: none;
-            border: 1px solid $statusOffline;
-            border-radius: 5px;
-            text-indent: 10px;
-            width: 60%;
-            padding: 5px 10px;
-            resize: none;
-            
-        }
-        .btn-send-message{
-            margin-left: 10px;
-            width: 80px;
-            text-transform: uppercase;
-            font-weight: bold;
-            background-color: $mainGray;
-            border: 1px solid $mainGray;
-            border-radius: 4px;
-            color: #FFF;
-            transition: background-color 0.2s ease-in;
-            outline: none;
-            &:hover{
-                background-color: #FFF;
-                color: $mainGray;
-            }
-        }
+    ::-webkit-scrollbar {
+        background-color: transparent;
+        width: 5px;
     }
     
+  .settings-container{
+      position: absolute;
+      bottom: 0;
+      height: 40px;
+      width: 100%;
+  
+      .btn-conf{
+          height: 40px;
+          outline: none;
+          width: 50%;
+          color: #E6EAEA;
+          background-color:#32465a ;
+          border: 0;
+          transition: background-color 0.1s ease-in-out;
+          
+          &:first-child{
+            border-right: 2px solid #2c3e50;
+          }
+          
+          &:hover{
+            background-color:#435f7a ;
+          }
+      }
+  }     
 }
 
 
